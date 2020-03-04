@@ -249,11 +249,11 @@ td.hiden{
     <table border="0" width="100%" class="tables">
       
         <tr>
-            <td width="30%" align="left">
+            <td width="80%" align="left"  style="padding-right:">
                 <table border="0" class="tables" align="left">
                 <tr>
                 <td class="overlap">
-                Voucher Dt 
+                    Voucher Dt 
                 </td>
                 <td>
                  <vs-input type="date" class="w-full"  size="small" v-model="mydate"/>
@@ -262,18 +262,13 @@ td.hiden{
                 </tr>
                 <tr>
                   <td>
-
-        
-                 
-                <div class="vx-col sm:w-1/3 w-full" overlap>
-                    <span><p>Voucher No</p></span>
-                </div>
-                </td>
-                <td>
-                
-                     <vs-input class="w-full" size="small" v-model="input1" />
-                
-                </td>
+                    <div class="vx-col sm:w-1/3 w-full overlap" >
+                       <span><p>Voucher No</p></span>
+                    </div>
+                  </td>
+                  <td>
+                    <vs-input class="w-full" size="small" v-model="input1" />
+                  </td>
                 
                 
                 </tr>
@@ -376,12 +371,6 @@ td.hiden{
     <td><vs-input class="w-full" size="small" v-model="input1" /></td>
     <td><vs-input class="w-full" size="small" v-model="input1" /></td>
   </tr>
-  <tr>
-    <td>Balance Qty</td>
-   <td><vs-input class="w-full" size="small" v-model="input1" /></td>
-    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
-    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
-  </tr>
 </table>
 </div>
        
@@ -390,6 +379,17 @@ td.hiden{
       <!--<button v-on:click="add_row">Add Row</button>-->
       
       <button class="btn"><i class="fa fa-plus"></i></button>
+      </div>
+      <br>
+      <div id="right">
+      <table border="0" width="100%" class="tables">
+      <tr>
+        <td align="right">Balance Qty</td>
+        <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+        <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+        <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+  </tr>
+</table>
 
     </div> 
     
