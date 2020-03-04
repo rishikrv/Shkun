@@ -121,7 +121,7 @@
 
 #customers tr:nth-child(even){background-color: #f2f2f2;}
 
-#customers tr:hover {background-color: #ddd;}
+
 
 #customers th {
   padding-top: 12px;
@@ -387,16 +387,7 @@ td.hiden{
     <td><vs-input class="w-full" size="small" v-model="input1" /></td>
   </tr>
     
-  <tr>
-     
-    <td>Cash in hand:</td>
-    <td>0.0</td>
-    <td class="hiden"></td>
-    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
-    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
-    
-  </tr> 
- 
+  
   
 </table>
 
@@ -413,7 +404,30 @@ td.hiden{
     </div> 
     
    
-    
+    <div style="overflow-x:auto;"  width="100%">  
+      <table >
+  
+        <tr>
+         
+          <td class="hiden" width="10%"></td>
+          Cash in hand:
+          <td width="8%" align="right"  border="1" >0.00 </td>
+          <td class="hiden" width="11%"></td>
+         
+          <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+          <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+          <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+          <td class="hiden" width="12%"></td>
+          
+        </tr> 
+ 
+  
+      </table>
+
+
+
+    </div>
+       
     
 
     

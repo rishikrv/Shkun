@@ -143,9 +143,6 @@
    max-width: 300px;
 
 }
-td.hiden{
-    visibility: hidden
-}
 </style>
 
 <style type="text/css">
@@ -226,7 +223,7 @@ td.hiden{
       <td width="25%">
         
       </td>
-       <td width="50%"><center><h1>Cash Voucher<br><h4><font color="blue">View</font></h4></h1></center></td>
+       <td width="50%"><center><h1>Sale Challan<br><h4><font color="blue">View</font></h4></h1></center></td>
        <td width="25%"  align="right">Today 25-10-2020 <br> Thursday
            
                 
@@ -252,9 +249,9 @@ td.hiden{
                 <table border="0" class="tables" align="left">
                 <tr>
                 <td class="overlap">
-                V Dt 
+                Date 
                 </td>
-                <td  >
+                <td>
                  <vs-input type="date" class="w-full"  size="small" v-model="mydate"/>
                 </td>
                 
@@ -264,8 +261,8 @@ td.hiden{
 
         
                  
-                <div class="vx-col sm:w-1/3 w-full" overlap>
-                    <span><p>V No</p></span>
+                <div class="vx-col sm:w-1/3 w-full overlap">
+                    <span><p>Ch.No.</p></span>
                 </div>
                 </td>
                 <td>
@@ -283,7 +280,11 @@ td.hiden{
             
            
             <td width="20%"></td>
-        <td width="55%"  align="right"></td>
+        <td width="55%"  align="right">
+           
+                
+    
+            </td>
         </tr>
         
     </table>
@@ -292,7 +293,75 @@ td.hiden{
    
 <br>
 
-	
+	<div id="page-wrap" >
+
+		<div id="left" border="0">
+      <table border="0" width="100%" cellspacing="5" class="tables">
+        <tr>
+          <td class="overlap">Cust.Name</td>
+          <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+        </tr>
+        <tr>
+          <td class="overlap">City</td>
+          <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+        </tr>
+        <tr>
+          <td class="overlap">GSTIN</td>
+          <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+        </tr>
+        
+      </table>
+    </div>
+		
+		<div id="rightt">
+      <table border="0" width="100%" cellspacing="5" class="tables">
+        <tr>
+          <td class="overlap"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="overlap"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="overlap"></td>
+          <td></td>
+        </tr>
+        
+      </table>
+    </div>
+			
+        <div id="mid">
+          <table border="0" width="100%" cellspacing="5"  class="tables">
+        <tr>
+          <td class="overlap"></td>
+          <td>
+            
+          </td>
+        </tr>
+        <tr>
+          <td class="overlap">Vehicle No.</td>
+          <td>
+             <vs-input class="w-full" size="small" v-model="input1" />
+       
+          </td>
+        </tr>
+        <tr>
+          <td class="overlap">GR No.</td>
+          <td>
+
+           <vs-input class="w-full" size="small" v-model="input1" /> 
+       
+          </td>
+        </tr>
+        
+      </table>
+        </div>
+       
+		<div style="clear:both;"></div>
+	</div>
+
+ 
     
     
     
@@ -306,11 +375,13 @@ td.hiden{
 <div style="overflow-x:auto;">  
 <table id="customers">
   <tr>
-    <th>Account Name.1</th>
-    <th>Narration</th>
-    <th>Payment</th>
-    <th>Receipt</th>
-    <th>Disount</th>
+    <th>Product Name</th>
+    <th>Description</th>
+    <th>HSN Code</th>
+    <th>Bags</th>
+    <th>Quantity</th>
+    <th>Rate</th>
+    <th>Amount</th>
     
   </tr>
   <tr>
@@ -319,23 +390,9 @@ td.hiden{
     <td><vs-input class="w-full" size="small" v-model="input1" /></td>
     <td><vs-input class="w-full" size="small" v-model="input1" /></td>
     <td><vs-input class="w-full" size="small" v-model="input1" /></td>
-    
-    
-  </tr>
-  <tr>
-    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
-    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
-    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
     <td><vs-input class="w-full" size="small" v-model="input1" /></td>
     <td><vs-input class="w-full" size="small" v-model="input1" /></td>
     
-  </tr>
-  <tr>
-    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
-    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
-    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
-    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
-    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
     
     
   </tr>
@@ -345,6 +402,32 @@ td.hiden{
     <td><vs-input class="w-full" size="small" v-model="input1" /></td>
     <td><vs-input class="w-full" size="small" v-model="input1" /></td>
     <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+    
+    
+
+  </tr>
+  <tr>
+    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+   
+    
+
+  </tr>
+  <tr>
+    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
     
     
   </tr>
@@ -354,6 +437,9 @@ td.hiden{
     <td><vs-input class="w-full" size="small" v-model="input1" /></td>
     <td><vs-input class="w-full" size="small" v-model="input1" /></td>
     <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+    
     
   </tr>
   <tr>
@@ -362,17 +448,20 @@ td.hiden{
     <td><vs-input class="w-full" size="small" v-model="input1" /></td>
     <td><vs-input class="w-full" size="small" v-model="input1" /></td>
     <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+   
+    
+ 
     
   </tr>
-  
-  
 </table>
 
 
 
-  </div>
+    </div>
        
-    <div id="example">
+      <div id="example">
         <!--IMPORT THE SCRIPT FOR ADDING ROWS AND USE THIS BUTTON-->
       <!--<button v-on:click="add_row">Add Row</button>-->
       
@@ -380,20 +469,22 @@ td.hiden{
 
     </div> 
 
-    
     <div style="overflow-x:auto;"  width="100%">  
-      <table  border="0" width="100%">
+      <table id="customers">
   
         <tr>
          
-          <td class="hiden" width="13%"></td>
-          <td  width="13%">Cash in hand:</td>
-          <td width="8%" align="right">0.00 </td>
-          <td class="hiden" width="6%"></td>
+          <td class="hiden" width="14%"></td>
+          <td class="hiden" width="14%"></td>
+          <td class="hiden" width="12%"></td>
+          
+          
+          <td width="13%" align="right">0 </td>
+          <td width="13%" align="right">0.000 </td>
+          <td class="hiden" width="14%"></td>
+          <td width="13%" align="center">0 </td>
          
-          <td ><vs-input class="w-full" size="small" v-model="input1" /></td>
-          <td ><vs-input class="w-full" size="small" v-model="input1" /></td>
-          <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+         
           
         </tr> 
  
@@ -404,16 +495,90 @@ td.hiden{
 
     </div>
        
-      
-    
-    
 
 
+    <div id="page-wrap">
 
+		<div id="left">
+      <table border="0" width="100%" cellspacing="5" class="tables">
+        <tr>
+          <td class="overlap">B.No.</td>
+          <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+        </tr>
+        <tr>
+          <td class="overlap">Kanda</td>
+          <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+        </tr>
+        <tr>
+          <td class="overlap">Shiped</td>
+          <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+        </tr>
+        <tr>
+          <td class="overlap">Transport</td>
+          <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+        </tr>
+        <tr>
+          <td class="overlap"></td>
+          <td>></td>
+        </tr>
+      </table>
+    </div>
+		
+		<div id="rightt">
+      <table border="0" width="100%" cellspacing="5" class="tables">
+        <tr>
+          <td class="overlap"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="overlap"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="overlap"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="overlap"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="overlap"></td>
+          <td></td>
+        </tr>
+        
+      </table>
+    </div>
+			
+        <div id="mid">
+          <table border="0" width="100%" cellspacing="5"  class="tables">
+        <tr>
+          <td class="overlap">Value</td>
+          <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+        </tr>
+        <tr>
+          <td class="overlap">Exp Before Tax</td>
+           <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+        </tr>
+        <tr>
+          <td class="overlap">Gst @</td>
+           <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+        </tr>
+        <tr>
+          <td class="overlap">Exp After Tax</td>
+           <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+        </tr>
+        <tr>
+          <td class="overlap">Grand Total</td>
+           <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+        </tr>
+        
+      </table>
+        </div>
+       
+		<div style="clear:both;"></div>
+	</div>
 
-
-
-    
 
 
     
@@ -432,7 +597,7 @@ td.hiden{
       </tr>
       </table>
       -->
-    <div align="right" style="padding-top: 10px">
+      <div align="right" style="padding-top: 20px">
         <br>
 
       <div class="right" align="right">
@@ -443,11 +608,11 @@ td.hiden{
         
 
       </div>
+      </div>
+      
+      
+      
     </div>
-      
-      
-      
-  </div>
 
     
 </template>

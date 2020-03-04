@@ -496,21 +496,7 @@
     <td><vs-input class="w-full" size="small" v-model="input1" /></td>
     
   </tr>
-   <tr>
-    <td></td>
-    <td>Net Amt</td>
-    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
-    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
-    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
-    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
-    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
-    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
-    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
-    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
-    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
-    <td><vs-input class="w-full" size="small" v-model="input1" /></td>
-    
-  </tr>
+  
 </table>
 
 
@@ -524,7 +510,35 @@
       <button class="btn"><i class="fa fa-plus"></i></button>
 
     </div> 
+<div style="overflow-x:auto;"  width="100%">  
+      <table>
+  
+        <tr>
+         
+          <td class="hiden" width="9%"></td>
+          <td width="8.3%">Net Amt</td>
+           <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+          <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+          <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+           <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+          <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+          <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+          
+          <td class="hiden" width="8.3%"></td>
+         
+          <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+          <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+          <td><vs-input class="w-full" size="small" v-model="input1" /></td>
+          
+        </tr> 
+ 
+  
+      </table>
 
+
+
+    </div>
+       
     
 
 
