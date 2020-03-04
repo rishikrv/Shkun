@@ -262,18 +262,20 @@
       </table>
     </div>
 		
-	<div id="rightt" class="overlap">
+	<div id="rightt">
       <table border="0" width="100%" cellspacing="5" class="tables">
         <tr>
+
           <td width="80%" align="left"  style="padding-right:">
-                <table border="0" class="tables" >
+                <table border="0" class="tables" align="left">
                 <tr>
-                <td>
+                <td class="overlap">
                     Date
                 </td>
                 <td>
                  <vs-input type="date" class="w-full"  size="small" v-model="mydate"/>
                 </td>
+                
                 </tr>
                 <tr>
                   <td >
@@ -293,7 +295,7 @@
             </td>
         </tr>
       </table>
-  </div>
+    </div>
     
     </div>
 			
