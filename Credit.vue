@@ -208,6 +208,43 @@
 
 }
 </style>
+<style>
+        .container {
+            max-width: 930px;
+            margin: 0px auto;
+            margin-top: 50px;
+        }
+
+        .comment {
+            float: left;
+            width: 100%;
+            height: auto;
+        }
+
+        .commenter {
+            float: left;
+        }
+
+        .commenter img {
+            width: 35px;
+            height: 35px;
+        }
+
+        .comment-text-area {
+            float: left;
+            width: 100%;
+            height: auto;
+        }
+
+        .textinput {
+            float: left;
+            width: 100%;
+            min-height: 300px;
+            outline: none;
+            resize: none;
+            border: 1px solid grey;
+        }
+    </style>
 
 <template >
 
@@ -219,7 +256,7 @@
             <td width="10%">   
             </td>
             <td width="50%"><center><h1>Credit Note<br><h4><font color="blue">View</font></h4></h1></center></td>
-       <td width="25%"  align="right"><h6>Edge</h6>
+       <td width="25%"  align="right"><h6>Edge on ledger</h6>
        <tr>
           
           <td>
@@ -237,176 +274,202 @@
 
          
     <!--UPDATE END-->
-  
-    <table border="0" width="100%" class="tables">
-      
+    <br>
+     <table border="0" width="100%" class="tables">
         <tr>
-            <td width="25%" align="left">
+            <td width="80%" align="left">
                 <table border="0" class="tables" align="left">
-                    <tr>
-                        <td class="overlap">
-                            Date 
-                        </td>
-                        <td>
-                        <vs-input type="date" class="w-full"  size="small" v-model="mydate"/>
-                        </td>
+                <tr>
+                <td class="overlap">
+                  Date
+                </td>
+                <td class="overlap"> 
+                 <vs-input type="date" class="w-full"  size="small" v-model="mydate"/>
+                </td>
                 
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="vx-col sm:w-1/3 w-full overlap">
-                            <span><p>V.No</p></span>
-                            </div>
-                        </td>
-                        <td>
-                            <vs-input class="w-full" size="small" v-model="input1" />
-                        </td>
-                    </tr>
+                </tr>
+                <tr>
+                  <td>
+
+                <div class="overlap">
+                    <span><p>V.No</p></span>
+                </div>
+                </td>
+                <td>
+                
+                     <vs-input class="w-full" size="small" v-model="input1" />
+                
+                </td>
+                
+                
+                </tr>
                 </table>
 
 
             </td>
             
            
-            <td width="65%"></td>
-            <td width="10%"  align="right">
+            <td width="10%"></td>
+      <td width="50%"  align="right">
            
                 
-               
+              <div align="right">
+       
+        </div>
             </td>
         </tr>
         
     </table>
 
-
-   
 <br>
-<table width="65%" border="0">
-    <tr>
-    
-          <td width="19%">
-             Debit
-          </td>
-           <td  width="46%"><vs-input class="w-full" size="small" v-model="input1" /></td>
-           
-           <br>
-           
-         
-    
-    </tr>
-    <tr>
-        
-          <td >
-              Credit
-          </td>
-           <td ><vs-input class="w-full" size="small" v-model="input1" /></td>
-           
-           
 
-    
+	<table border="0" width="100%" class="tables">
+        <tr>
+            <td width="80%" align="left">
+                <table border="0" class="tables" align="left">
+                
+                <tr>
+                  <td>
+
+                <div class="overlap">
+                    <span><p>Credit</p></span>
+                </div>
+                </td>
+                <td>
+                
+                     <vs-input class="w-full" size="small" v-model="input1" />
+                
+                </td>
+                
+                
+                </tr>
+                <tr>
+                  <td>
+
+                <div class="overlap">
+                    <span><p>Debit</p></span>
+                </div>
+                </td>
+                <td>
+                
+                     <vs-input class="w-full" size="small" v-model="input1" />
+                
+                </td>
+                
+                
+                </tr>
+                </table>
+
+
+            </td>
+            
+           
+            <td width="10%"></td>
+      <td width="50%"  align="right">
+           
+                
+              <div align="right">
+       
+        </div>
+            </td>
         </tr>
-    
-    
-
-</table>	
-<table border="0">
-
-<tr>
         
-          <td width="17%"  >
-               Details
+    </table>	
+
+      <br>
+<table border="0" width="100%" class="tables">
+        <tr>
+            <td>
+              <table border="0" class="tables" align="top" style="padding-bottom:10px">
+                  <tr>
+                  <td width="20%" class="overlap" style="padding-bottom:200px">
+                    Details
+                  </td>
+                  <td width="80%">
+                    <div class="container">
+                      <div class="comment">
+                        <textarea class="textinput"></textarea>
+                      </div>
+                    </div>
+                  </td>
+                  </tr>
+                </table>
                  
-              
-          </td>
-           <td  width="37%"><textarea rows="10" cols="80">
-               </textarea>
-           </td>
-           
-           <td  width="23%">
-           </td>
-           <td  width="23%">
-           </td>
-           
-
-    
-        </tr>	
-		
-</table>		
-        
-
-
-
-       
-      
-<div style="overflow-x:auto;"  width="100%">  
-      <table>
-  
-        <tr>
-         <td class="hiden" width="9%"></td>
-          <td class="hiden" width="9%"></td>
-          <td width="8.3%">Qty.t</td>
-          <td><vs-input class="w-full" size="small" v-model="input1" /></td>
-           
-          
-          <td class="hiden" width="9%"></td>
-           <td width="8.3%">Amount</td>
-          <td><vs-input class="w-full" size="small" v-model="input1" /></td>
-          
-          <td class="hiden" width="8.3%"></td>
+                  <table border="0" class="tables" style="padding-bottom:1000px">
+                  <tr>
+                  <td class="overlap" align="left" id="tables">Qty</td>
+                  <td ><vs-input class="w-full" size="small" v-model="input1" /></td>
+                  <td class="overlap" align="right" id="tables">Amount</td>
+                  <td ><vs-input class="w-full" size="small" v-model="input1" /></td>
+                  </tr> 
+                  <tr>
+                  <td class="overlap" align="left" id="tables" width="10%">Rate</td>
+                  <td ><vs-input class="w-full" size="small" v-model="input1" /></td>
+                  </tr>  
+              </table>
+            </td>
+            
          
-          
-          
-         
+        <td width="40%"  style="padding-bottom:900px">      
+          <div  >
+            <div  >
+              <table border="0" width="100%" cellspacing="5" class="tables">
+                <tr >
+                <td align="center"> 
+                <button class="btn"><i class="fa fa-plus"></i></button>
+                </td>
+                <td align="center"> 
+                <button class="btn"><i class="fa fa-edit"></i></button>
+                </td>
+                </tr>
+                <tr>
+                <td align="center"> 
+                <button class="btn"><i class="fa fa-floppy-o"></i></button>
+                </td>
+                <td align="center"> 
+                <button class="btn"><i class="fa fa-trash"></i></button>
+                </td>
+                </tr>
+                </table>
+               <table border="0" width="100%" cellspacing="5" class="tables">
+                <tr  >
+                  <td  align="center">
+                    <button class="btn"><i class="fa fa-search" ></i></button>
+                  </td>
+                </tr>
+                </table>
+                <table border="0" width="100%" cellspacing="5" class="tables">
+                <tr>
+                  <td align="center">
+                    <button class="btn"><i class="fa fa-step-backward"></i></button>
+                  </td>
+                  <td align="center" >
+                    <button class="btn"><i class="fa fa-angle-left"></i></button>
+                  </td>
+                  <td align="center" >
+                    <button class="btn"><i class="fa fa-angle-left"></i></button>
+                  </td>
+                  <td align="center" >
+                    <button class="btn"><i class="fa fa-step-forward"></i></button>
+                  </td>
+                </tr>
+                </table>
+               <table border="0" width="100%" cellspacing="5" class="tables">
+                <tr>
+                  <td align="center" width="90%" >
+                    <button class="btn"><i class="fa fa-question"></i></button>
+                  </td>
+                  
+                </tr>
+
+              </table> 
+             
+            
+            </div>
+          </div>
+        </td>
         </tr> 
-        <tr>
-         <td class="hiden" width="9%"></td>
-          <td class="hiden" width="9%"></td>
-          <td width="8.3%">Rate</td>
-          <td><vs-input class="w-full" size="small" v-model="input1" /></td></tr>
- 
-  
-      </table>
-
-
-
-    </div>
-       
-    
-
-
-    
-
-    
-      <!--
-      <table width="100%">
-      <tr>
-        <td width="80%"></td>
-        <td width="10%">
-      
-        <vs-button  color="primary" type="filled">Print</vs-button>
-        
-      </td>
-      <td  width="10%">
-        <vs-button  color="primary" type="filled" style="!">Submit</vs-button>
-      </td>
-      </tr>
-      </table>
-      -->
-      <div align="right" style="padding-top: 20px">
-        <br>
-
-      <div class="right" align="right">
-        <br>
-        <vs-button  color="primary" type="filled">Print</vs-button>
-        &nbsp;
-        <vs-button  color="primary" type="filled" style="!">Submit</vs-button>
-        
-
-      </div>
-      </div>
-      
-      
-      
+    </table>   
     </div>
 
     

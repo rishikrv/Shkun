@@ -5,7 +5,6 @@
     max-width: 150px;
     max-height: 150px;
     overflow: hidden;
-    padding:10px
 }
 </style>
 <style>
@@ -55,7 +54,7 @@
     height: auto;
    
     float: left;
-    padding-right: 8%;
+    padding-right: 70%;
     
     
 }
@@ -65,16 +64,16 @@
     height: auto;
     float: left;
    
-    padding-right: 8%;
+    padding-left: 8%;
   
 }
 
 #rightt {
     
-    width: 33%;
+    width: 34%;
     height: auto;
     float: left;
-    padding-right: 5%;
+    padding-right: 2.5%;
     padding-left: 2.5%;
 }
 </style>
@@ -92,6 +91,8 @@
   color: white;
   padding: 12px 16px;
   font-size: 16px;
+ 
+  width: 50%;
   
   cursor: pointer;
   border-radius: 12px;
@@ -131,9 +132,6 @@
   background-color: #7367f0;
   color: white;
 }
-.h1{
-    align-self: auto;
-}
 </style>
 <style>
 
@@ -147,6 +145,9 @@
    min-width: 10px;  
    max-width: 300px;
 
+}
+td.hiden{
+  visibility: hidden;
 }
 </style>
 
@@ -218,93 +219,110 @@
 
 }
 </style>
+
 <template>
 
     <div class="vx-card p-6" style="" >
-     
-    <table width="100%" border="0" class="tables">
+     <!--UPDATE START-->
+      <table width="100%" border="0" class="tables">
      <tr>
       <td width="25%">
         
       </td>
-       <td width="50%"><center><h1>Passbook Feeding<br><h4><font color="blue"></font></h4></h1></center></td>
-       <td width="25%"  align="right"><br>     
+       <td width="50%"><center><h1>Passbook Feeding<br><h4><font color="blue">View</font></h4></h1></center></td>
+        <td width="25%"  align="right"><br>     
         </td>
       </tr>
       </table>
-<br>
-    <div>
-	<div id="page-wrap">
-    <div id="left">
-      <table border="0" width="100%" cellspacing="5" class="tables">
-        <tr>
-            <td class="overlap">
-                <div id="example">
-                    <button class="btn"><i class="fa fa-trash"></i></button>
-                </div> 
-            </td>
-        </tr>
-        <tr>
-            <td class="overlap">
-                <div id="example">
-                    <button class="btn"  ><i class="fa fa-thumbs-up  icon-4x"></i></button>
-                </div>
-            </td>
-       
-        </tr>
-        <tr>
-            <td class="overlap">
-                <div id="example">
-                    <button class="btn"><i class="fa fa-close"></i></button>
-                </div>
-            </td>
-        </tr>
-      </table>
-    </div>
-		
-	<div id="rightt">
-      <table border="0" width="100%" cellspacing="5" class="tables">
-        <tr>
 
-          <td width="80%" align="left"  style="padding-right:">
-                <table border="0" class="tables" align="left">
+         
+    <!--UPDATE END-->
+  
+    <table border="0" width="100%" class="tables">
+      
+        <tr>
+            <td width="60%" align="left"  style="padding-right:">
+              <table border="0" class="tables" align="left">
                 <tr>
-                <td class="overlap">
-                    Date
+                <td class="overlap" align="center">
+                  <div id="example">
+                      <button class="btn"><i class="fa fa-trash"></i></button>
+                  </div> 
                 </td>
-                <td>
-                 <vs-input type="date" class="w-full"  size="small" v-model="mydate"/>
-                </td>
-                
                 </tr>
                 <tr>
-                  <td >
-                    <div class="vx-col sm:w-1/3 w-full overlap" >
-                       <span><p>V.No</p></span>
+                  <td  align="center" class="overlap">
+                    <div id="example">
+                        <button class="btn" ><i class="fa fa-thumbs-up"></i></button>
                     </div>
                   </td>
-                  <td>
-                    <vs-input class="w-full" size="small" v-model="input1" />
+                        
+                  <td class="overlap" width="20%" align="right">
+                      Date
                   </td>
-                
-                
+                  <td>
+                    <vs-input type="date" class="w-full"  size="small" v-model="mydate"/>
+                  </td>
+      
                 </tr>
-                </table>
-
-
+                <tr>
+                  <td class="overlap">
+                      <div id="example" align="center">
+                          <button class="btn"><i class="fa fa-close"></i></button>
+                      </div>
+                  </td>
+                  <td class="overlap" width="20%" align="right">
+                      V.No
+                  </td>
+                  <td>
+                    <vs-input class="w-full"  size="small" v-model="input1"/>
+                  </td>
+                </tr>
+                <br>
+                <tr>
+                    <td class="overlap,tables" align="right">
+                      <td width="80%"><center><h4>Interest Calculation</h4></center>
+                    </td>
+                </tr>
+                <br>
+                <tr>
+                  <td class="overlap" width="100%" align="center" id="">
+                   
+                      <button class="btn" id="tables">Interest Report</button>
+                  
+                  </td>
+                  <td class="overlap" align="right" id="tables" width="80%">From</td>
+                  <td align="center"><vs-input class="w-full" size="small" v-model="input1" /></td>
+                </tr>
+                <tr>
+                  <td class="overlap" id="tables" >
+                      <div id="example">
+                         
+                      </div>
+                  </td>
+                  <td class="overlap" align="right"  width="10%">Upto</td>
+                  <td ><vs-input class="w-full" size="small" v-model="input1" /></td>
+                </tr>
+                <tr>
+                  <td class="overlap">
+                      <div id="example">
+                         
+                      </div>
+                  </td>
+                  <td class="overlap" align="right"  width="10%">Intt.@</td>
+                  <td align="left"><vs-input type="label" class="w-full" size="small" v-model="label" /></td>
+                </tr>
+            </table>
             </td>
-        </tr>
-      </table>
-    </div>
-    
-    </div>
-			
-        <div style="overflow-x:auto;overflow-y:auto " id="mid">
-          <table border="0" width="100%" cellspacing="5"  class="tables" id="customers">
+            
+         
+        <td width="40%"  align="right">      
+          <div align="right" style="overflow-x:auto;overflow-y:auto">
+            <div class="right" align="right">
+              <table border="0" width="100%" cellspacing="5"  class="tables" id="customers">
                 <tr>
                     <th>Date</th>
-                    <th>Balance</th>
-                    
+                    <th>Balance</th> 
                 </tr>
                 <tr>
                     <td><vs-input class="w-full" size="small" v-model="input1" /></td>
@@ -330,60 +348,18 @@
                     <td><vs-input class="w-full" size="small" v-model="input1" /></td>
                     <td><vs-input class="w-full" size="small" v-model="input1" /></td>
                 </tr>
-
-      </table>
-      
-        </div>
-        
-		<div style="clear:both;"></div>
-	</div>
-        <table border="0" width="100%"  cellspacing="5" class="tables">
-            <tr>
-            <td align="Center">
-                <h4>Interest Calculation</h4>
-            </td>
-            </tr>
-        </table>
-        <div class="rightt">
-        <table border="0" width="100%"  class="tables" cellspacing="5" >
-            <tr>
-            <td class="overlap" width="50%">
-                <div id="example" >
-                    <button class="btn"><i class="fa fa-print "></i></button>
-                </div> 
-            </td>
-            <td  width="90%" >
-                        <tr >
-                            <td class="overlap">From</td>
-                            <td align="left"><vs-input class="w-full" size="small" v-model="input1" /></td>
-                       </tr>
-                     
-                       <tr>
-                            <td class="overlap">Upto</td>
-                            <td><vs-input class="w-full" size="small" v-model="input1" /></td>
-                        </tr>
-                        <tr >
-                            <td class="overlap">Intt.@</td>
-                            <td><vs-input class="w-full" size="small" v-model="input1" /></td>
-                        </tr>
-                  
-                
-          
-            </td>
-            </tr>
-        </table>
-        </div>
-           
-
-        </div>
+              </table> 
+              <div id="example">
+                <button class="btn"><i class="fa fa-plus"></i></button>
+              </div>
+            
+            </div>
+          </div>
+        </td>
+        </tr> 
+    </table>    
+    </div>
 </template>
-
-
-
-
-
-
-
 
 
 
