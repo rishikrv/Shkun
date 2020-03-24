@@ -27,7 +27,7 @@
 
     <div class="vx-card p-6" style="" >
      <!--UPDATE START-->
-      <table width="100%" border="0" class="tables">
+      <table width="100%" border="0" >
      <tr>
       <td width="25%">
         
@@ -87,26 +87,15 @@
     <th class="bg-primary">Disount</th>
     <th class="bg-primary">delete</th>
   </tr>
-<tr v-for="(cashVaucher, k) in cashVauchers" :key="k">  
-    <td scope="row">
-        <vs-input class="w-full" size="small" v-model="cashVaucher.accountno" v-on:keyup.enter="addNewRow" />
-    </td>
-     <td>
-      <vs-input class="w-full" size="small"  v-model="cashVaucher.cityname"  />
-    </td>
-    <td>
-      <vs-input class="w-full" size="small"  v-model="cashVaucher.narration"  />
-    </td>
-    <td>
-      <vs-input class="w-full"  size="small" v-model="cashVaucher.receiptno"   @keypress="onlyNumber"/>
-    </td>
-    
-    <td>
-      <vs-input class="w-full"  size="small" v-model="cashVaucher.payment" @change="totaladd(cashVaucher)" dir="rtl"  @keypress="onlyNumber"/>
-    </td>
-    <td><vs-input class="w-full" size="small" v-model="cashVaucher.receipt" /></td>
-    <td><vs-input class="w-full" size="small" v-model="cashVaucher.discount" @change="totaladd(cashVaucher)" dir="rtl" @keypress="onlyNumber"  v-on:keyup.enter="addNewRow"/></td>
-     <td align="center"><vs-button type="border" size="small" icon-pack="feather" icon-no-border icon="icon-trash" color="danger" style="margin:3px;"  @click="deleteRow(k, cashVaucher)"></vs-button></td>
+<tr v-for="(cashReceipt, k) in cashReceipts" :key="k">  
+    <td scope="row"><vs-input class="w-full" size="small" v-model="cashReceipt.accountno" v-on:keyup.enter="addNewRow" /></td>
+    <td><vs-input class="w-full" size="small"  v-model="cashReceipt.cityname"  /></td>
+    <td><vs-input class="w-full" size="small"  v-model="cashReceipt.narration"  /></td>
+    <td><vs-input class="w-full"  size="small" v-model="cashReceipt.receiptno"   @keypress="onlyNumber"/></td>
+    <td><vs-input class="w-full"  size="small" v-model="cashReceipt.payment" @change="totaladd(cashReceipt)" dir="rtl"  @keypress="onlyNumber"/></td>
+    <td><vs-input class="w-full" size="small" v-model="cashReceipt.receipt" /></td>
+    <td><vs-input class="w-full" size="small" v-model="cashReceipt.discount" @change="totaladd(cashReceipt)" dir="rtl" @keypress="onlyNumber"  v-on:keyup.enter="addNewRow"/></td>
+    <td align="center"><vs-button type="border" size="small" icon-pack="feather" icon-no-border icon="icon-trash" color="danger" style="margin:3px;"  @click="deleteRow(k, cashReceipt)"></vs-button></td>
   </tr>
   </table>
 </div>
@@ -117,7 +106,7 @@
       <vs-button class="button" size="small"  @click="pop"><i class="fa fa-minus"></i></vs-button>
           &nbsp;
         <vs-button class="button" size="small" @click="saveInvoice">show all data</vs-button>
-    </div> <i class="far fa-trash-alt" @click="deleteRow(k, cashVaucher)"></i>
+    </div> <i class="far fa-trash-alt" @click="deleteRow(k, cashReceipt)"></i>
 <br/>
     <div style="overflow-x:auto;"  width="100%">  
       <table  border="0" width="100%">
@@ -157,9 +146,11 @@ export default {
         return {
             date:null,
             totalcount:0,
-            cashVauchers: [{
+            cashReceipts: [{
             accountno: '',
+            cityname: '',
             narration: '',
+            receiptno:'',
             payment: '',
             receipt: '',
             discount: ''
@@ -171,43 +162,49 @@ export default {
     },
     methods:{
         addNewRow() {
-            this.cashVauchers.push({
+            this.cashReceipts.push({
                 accountno: '',
+                cityname: '',
                 narration: '',
+                receiptno:'',
                 payment: '',
                 receipt: '',
                 discount: ''
             });
         },
-        deleteRow(index, cashVaucher) {
-            var idx = this.cashVauchers.indexOf(cashVaucher);
+        deleteRow(index, cashReceipt) {
+            var idx = this.cashReceipts.indexOf(cashReceipt);
             console.log(idx, index);
             if (idx > -1) {
-                this.cashVauchers.splice(idx, 1);
+                this.cashReceipts.splice(idx, 1);
             }
         },
         pop(){
-           this.cashVauchers.pop({
+           this.cashReceipts.pop({
                 accountno: '',
+                cityname: '',
                 narration: '',
+                receiptno:'',
                 payment: '',
                 receipt: '',
                 discount: ''
             });
         },
          saveInvoice() {
-            alert(JSON.stringify(this.cashVauchers));
+            alert(JSON.stringify(this.cashReceipts));
         },
-        totaladd(cashVaucher){
-             var total = parseFloat(cashVaucher.payment) * parseFloat(cashVaucher.discount);
+        totaladd(cashReceipt){
+             var total = parseFloat(cashReceipt.payment) * parseFloat(cashReceipt.discount);
            this.totalcount=total;
             this.calculateTotal(); 
         },
         
           deletec(){
-              this.cashVauchers.pop({
+              this.cashReceipts.pop({
                 accountno: '',
+                cityname: '',
                 narration: '',
+                receiptno:'',
                 payment: 0,
                 receipt: '',
                 discount: 0
