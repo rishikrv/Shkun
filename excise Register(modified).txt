@@ -1,0 +1,298 @@
+<style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;  
+}
+ #customers th {
+  border: 1px solid #ddd; 
+}
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #7367f0;
+  color: white;
+}
+.select-large input.vs-select--input {
+    padding: 5px;
+}
+</style>
+
+     <!--Mini CSS used , {{now}}, {{currentday}} variable is used to get current date-->
+
+<template>
+
+    <div class="vx-card p-6" style="" >
+     <!--UPDATE START-->
+      <table width="100%" border="0" class="tables">
+     <tr>
+      <td width="25%">  
+      </td>
+       <td width="50%"><center><h1 class="text-primary">Excise Register<br/><h4><font color="grey">View</font></h4></h1></center></td>
+       <td width="25%"  align="right">Today {{now}}<br/> {{currentday}}            
+        </td>
+      </tr>
+      </table>    
+      <br/>
+
+       <div id="center">
+       <table border="0" width="100%" cellspacing="5" class="tables">
+          
+        <tr>
+
+           <div class="vx-row mb-3">
+        <div class="vx-col sm:w-1/6 " >
+          <span>Report </span>
+        </div>
+         <div class="vx-col sm:w-1/5 " style="width:250px; height:25px;">
+            <vs-select v-model="city"   class="w-full select-large"    >
+                <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="(item,index) in cityOptions" class="w-full" />
+            </vs-select> 
+          </div>
+          </div>
+           <div class="vx-row mb-3">
+        <div class="vx-col sm:w-1/6 " >
+          <span>Product </span>
+        </div>
+         <div class="vx-col sm:w-1/5 " style="width:250px; height:25px;">
+            <vs-select v-model="city"   class="w-full select-large"    >
+                <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="(item,index) in cityOptions" class="w-full" />
+            </vs-select> 
+          </div>
+          </div>
+           
+            <div class="vx-row mb-3">
+        <div class="vx-col sm:w-1/6 " >
+          <span> </span>
+        </div>
+         <div class="vx-col sm:w-1/5 " style="width:250px; height:25px;">
+            <vs-select v-model="city"   class="w-full select-large" >
+                <vs-select-item :key="index" :value="item.value" :text="item.text" v-for="(item,index) in cityOptions" class="w-full" />
+            </vs-select> 
+          </div>
+          </div> 
+         </tr>
+
+      <br/>
+       </table>
+      </div>
+ 
+  <div class="vx-row mb-3">
+        <div class="vx-col sm:w-1/6 " >
+          <span>From </span>
+        </div>
+        <div class="vx-col sm:w-1/6 w-full" >
+           <flat-pickr  v-model="date" size="small"  icon-pack="feather"  icon="icon-calendar"  style="width:110px; height:30px;"  placeholder="choose Date" />
+        </div>
+    
+      </div>
+          
+      <div class="vx-row mb-3">
+        <div class="vx-col sm:w-1/6 " >
+          <span>Upto</span>
+        </div>
+         <div class="vx-col sm:w-1/6 w-full" >
+           <flat-pickr  v-model="date" size="small"   icon-pack="feather"  icon="icon-calendar"    style="width:110px; height:30px;"  placeholder="choose Date" />
+        </div>
+      </div>
+
+      <div class="vx-row mb-3">
+        <div class="vx-col sm:w-1/6 " >
+          <span>Page#</span>
+        </div>
+         <div class="vx-col sm:w-1/6 w-full" >
+           <flat-pickr  v-model="date" size="small"   icon-pack="feather"  icon="icon-calendar"    style="width:110px; height:30px;"  placeholder="" />
+        </div>
+      </div>
+
+      <div class="vx-row mb-3">
+        <div class="vx-col sm:w-1/6 " >
+          <span>Sr No. </span>
+        </div>
+         <div class="vx-col sm:w-1/6 w-full" >
+           <flat-pickr  v-model="date" size="small"   icon-pack="feather"  icon="icon-calendar"    style="width:110px; height:30px;"  placeholder="" />
+        </div>
+      </div>
+      <br/>
+       <div class="vx-row mb-3">
+        <div class="vx-col sm:w-1/6 " >
+          <span></span>
+         
+        </div>
+          </div>
+    
+
+        
+            
+        <div align="right" style="padding-top: 10px">
+        <br>
+      <div class="right" align="right">
+        <br>
+           <vs-button class="button"  @click="submit">Exit</vs-button>
+         &nbsp;
+         <vs-button class="button"  @click="submit">Print</vs-button>
+          &nbsp;
+         <vs-button class="button"  @click="submit">Export</vs-button>
+        
+         
+      </div>
+    </div>      
+
+</div>
+    
+</template>
+
+ <!--Script Start here all the action like @click and all method written above are define in this script, please useunique key value -->
+
+<script>
+import  flatPickr  from 'vue-flatpickr-component';
+import  'flatpickr/dist/flatpickr.css';
+export default {
+  data() {
+        return {
+            date:null,
+            totalcount:0,
+            cashVauchers: [{
+            accountname: '',
+                op: '',
+                Rec: '',
+                opening: '',
+                recqty: '',
+                issue: '',
+                issueqty: '',
+                cls: '',
+                closing: '',
+                values: '',
+            }]
+        } 
+    },
+    components:{
+      flatPickr
+    },
+    methods:{
+          addNewRow(){
+              this.cashVauchers.push({
+                accountname: '',
+                op: '',
+                Rec: '',
+                opening: '',
+                recqty: '',
+                issue: '',
+                issueqty: '',
+                cls: '',
+                closing: '',
+                values: '',
+            });
+          },
+         addNewRowEnterkey(index, cashVaucher) {
+               var idx = this.cashVauchers.indexOf(cashVaucher);
+                 var len = this.cashVauchers.length;
+            console.log(idx,index);
+            if (len-1==index) {
+                this.cashVauchers.push({
+                accountname: '',
+                op: '',
+                Rec: '',
+                opening: '',
+                recqty: '',
+                issue: '',
+                issueqty: '',
+                cls: '',
+                closing: '',
+                values: '',
+                });
+                     this.addNotify();
+            }
+        },
+        deleteNotify(){
+            this.$vs.notify({
+              text: 'Row is deleted',
+              color: "danger",
+              iconPack: 'feather',
+              icon:'icon-trash'
+             })
+      },
+       addNotify(){
+            this.$vs.notify({
+              text: 'Row is Added',
+              color: "primary",
+              iconPack: 'feather',
+              icon:'icon-plus'
+             })
+      },
+        deleteRow(index, cashVaucher) {
+            var idx = this.cashVauchers.indexOf(cashVaucher);
+            console.log(idx, index);
+            if (idx > -1) {
+                this.cashVauchers.splice(idx, 1);
+            }
+            this.deleteNotify();
+        },
+        pop(){
+           this.cashVauchers.pop({
+               accountname: '',
+                op: '',
+                Rec: '',
+                opening: '',
+                recqty: '',
+                issue: '',
+                issueqty: '',
+                cls: '',
+                closing: '',
+                values: '',
+            });
+            this.deleteNotify();
+        },
+         saveInvoice() {
+            alert(JSON.stringify(this.cashVauchers));
+        },
+        totaladd(cashVaucher){
+             var total = parseFloat(cashVaucher.payment) * parseFloat(cashVaucher.discount);
+           this.totalcount=total;
+            this.calculateTotal(); 
+        },  
+          deletec(){
+              this.cashVauchers.pop({
+                accountname: '',
+                op: '',
+                Rec: '',
+                opening: '',
+                recqty: '',
+                issue: '',
+                issueqty: '',
+                cls: '',
+                closing: '',
+                values: '',
+            });
+          },
+ 
+         onlyNumber($event) {    
+                let keyCode = ($event.keyCode ? $event.keyCode : $event.which);
+                if ((keyCode < 48 || keyCode > 57) && keyCode !== 46) { // 46 is dot
+                  return   $event.preventDefault();
+                }
+                else return null;           
+          }
+    },
+    created() {
+      for(var i=0;i<4;i++){
+         this.addNewRow();
+      }
+    },
+   
+    computed: {
+        now: function () {  
+          var today = new Date();
+          var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+          return date;
+        },
+        currentday: function(){
+           var today = new Date();
+           var weekday=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+            var  currenday = weekday[today.getDay()];
+            return currenday;
+        }
+    }
+}
+</script>
